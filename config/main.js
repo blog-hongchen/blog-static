@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from '@/App'
-
+import config from './config';
 require('../baseCss/base.scss');
 
 Vue.use(Router);
 
 const mapObj = {
-	'HelloWorld': r => require.ensure([], () => r(require('@/page/HelloWorld.vue')), 'HelloWorld'),
-	'HelloWorld1': r => require.ensure([], () => r(require('@/page/HelloWorld1.vue')), 'HelloWorld1'),
+	'index': r => require.ensure([], () => r(require('@/page/index/index.vue')), 'index'),
 	'notFound': r => require.ensure([], () => r(require('@/components/404.vue')), 'notFound'),
 };
 const router = new Router({
@@ -17,13 +16,8 @@ const router = new Router({
 	routes: [
 		{
 			path: "/",
-			name: 'HelloWorld',
-			component: mapObj.HelloWorld
-		},
-		{
-			path: '/HelloWorld1',
-			name: 'HelloWorld1',
-			component: mapObj.HelloWorld1
+			name: 'index',
+			component: mapObj.index
 		},
 		{
 			path: '*',
@@ -32,9 +26,19 @@ const router = new Router({
 		}
 	]
 });
-
-
-Vue.config.productionTip = false
+// router.beforeEach((to, from, next)=>{
+// 	try {
+// 		let layer = document.querySelectorAll('.page-layer');
+// 		for(var i = 0;i<layer.length;i++){
+// 			let item = layer[i];
+// 			item.parentNode.removeChild(item);
+// 		}
+// 	} catch (e) {
+// 	}
+// 	next();
+// });
+Vue.use(config);
+Vue.config.productionTip = false;
 const app = new Vue({
 	el: '#app',
 	router: router,
