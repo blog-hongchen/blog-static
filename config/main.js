@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import App from '@/App'
 import config from './config';
+import store from '@/store';
 require('../baseCss/base.scss');
 
 Vue.use(Router);
@@ -41,6 +42,7 @@ Vue.use(config);
 Vue.config.productionTip = false;
 const app = new Vue({
 	el: '#app',
+	store,
 	router: router,
 	components: {App},
 	template: '<App/>',
