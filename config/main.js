@@ -4,6 +4,7 @@ import App from '@/App'
 import config from './config';
 import store from '@/store';
 require('../baseCss/base.scss');
+import '@/util/date';
 
 Vue.use(Router);
 

@@ -7,9 +7,9 @@
 		</nav>
 	</header>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 	.top-content {
-		width: 1100px;
+		width: 100%;
 		margin: 0 auto;
 		height: 200px;
 		position: relative;
@@ -24,9 +24,7 @@
 			bottom: 30px;
 			font-size: 16px;
 		}
-		@media (min-width: 1420px) {
-			width: 1280px !important;
-		}
+
 	}
 </style>
 <script>
