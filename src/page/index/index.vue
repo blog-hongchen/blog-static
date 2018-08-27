@@ -2,7 +2,11 @@
 	<div>
 		<div class="left-content">
 			<div class="calendar-content">
-				<Calendar>
+				<Calendar
+						classStr="sss"
+						:defaultDate="defaultDate"
+						@chooseDay="chooseDay"
+				>
 
 				</Calendar>
 			</div>
