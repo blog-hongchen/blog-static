@@ -6,19 +6,12 @@ let apiUrl = "", token = "";
 const urls = {
 	//线上正式接口地址
 	production: {
-		login: apiUrl + '/rest/' + token + '/Java/item/queryItemDetailInfo/',
-		getPaymentList: apiUrl + '/rest/' + token + '/Cart/Cart/getConfirmation/%7B%7D',
-		getPaymentHistoryList: apiUrl + '/rest/' + token + '/Cart/Cart/getConfirmation/%7B%7D',
-		getPaymentHistoryInfo: apiUrl + '/rest/' + token + '/Cart/Cart/getConfirmation/%7B%7D',
-		getPaymentInfo: apiUrl + '/rest/' + token + '/Cart/Cart/getConfirmation/%7B%7D',
+		test: 'http://192.168.99.133:8087/test',
+		aaaa: 'http://192.168.99.133:8087/aaaa',
 	},
 	//Mock接口地址，方便调试
 	development: {
-		login: 'login/',
-		getPaymentList: 'getPaymentList/',
-		getPaymentHistoryList: 'getPaymentHistoryList/',
-		getPaymentHistoryInfo: 'getPaymentHistoryInfo/',
-		getPaymentInfo: 'getPaymentInfo/'
+		login: 'login/'
 	}
 
 };

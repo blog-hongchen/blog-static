@@ -17,14 +17,14 @@ config.install = function (Vue, options) {
 		//全局路由钩子，非详情页，禁用分享，更新title
 		beforeRouteEnter(to, from, next) {
 			let title = '醉梦荭尘';
-			switch (to.name) {
-				case 'index':
-					title = '醉梦荭尘';
-					break;
-				default:
-					title = '404';
-					break;
-			}
+			// switch (to.name) {
+			// 	case 'index':
+			// 		title = '醉梦荭尘';
+			// 		break;
+			// 	default:
+			// 		title = '404';
+			// 		break;
+			// }
 			next(vm => {
 				window.vm = vm;
 				if (to.name !== 'index' && to.name !== '/' && to.name !== "index.php") {

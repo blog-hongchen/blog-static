@@ -5,6 +5,7 @@ import urls from './urls';
 // import {alert} from '../components/layer';
 
 const ajax = function (url, options, backUrl) {
+	let vm = this;
 	options = options || {};
 	options.url = url;
 	//mock
@@ -22,46 +23,34 @@ const ajax = function (url, options, backUrl) {
 			options.url += backUrl;
 		}
 	}
-	
 	let defaultErrorMsg = '出错啦!';
 	return new Promise((resolve, reject) => {
-		Vue.http(options).then(res => {
-			if (!res.ok) reject({message: defaultErrorMsg});
-			res.json().then(json => {
 
-				//php  接口
-				if (typeof json.error !== 'undefined' && json.error == 0) {
-					resolve(json);
-				} else if (typeof json.code !== 'undefined' && json.code == 200) {
-					resolve(json);
-				}
-				else if (json.code === 302) {
+		Vue.http.get(url, {params: options.jsonParams}).then(response => {
+			console.log("ss", response)
+		}, response => {
+			console.log("saa", response)
+		});
 
-					// debugger;
-					if (!options.useHooker) {
-						if (json.message != '') {
-							alert(json.message, {
-								callback: () => {
-									window.location.href = json.data;
-								}
-							})
-						} else {
-							window.location.href = json.data;
-						}
-					} else {
-						reject(json);
-					}
-
-				}
-				else {
-					reject(json);
-				}
-			}).catch(err => {
-				reject({message: defaultErrorMsg});
-			})
-		}).catch(err => {
-			reject({message: defaultErrorMsg});
-		})
+		// Vue.http(options).then(res => {
+		// 	if (!res.ok) reject({message: defaultErrorMsg});
+		// 	res.json().then(json => {
+		// 		if (typeof json.error !== 'undefined' && json.error == 0) {
+		// 			resolve(json);
+		// 		} else if (typeof json.code !== 'undefined' && json.code == 200) {
+		// 			resolve(json);
+		// 		}
+		// 		else if (json.code === 302) {
+		// 			reject(json);
+		// 		} else {
+		// 			reject(json);
+		// 		}
+		// 	}).catch(err => {
+		// 		reject({message: defaultErrorMsg});
+		// 	})
+		// }).catch(err => {
+		// 	reject({message: defaultErrorMsg});
+		// })
 	});
 };
 /**

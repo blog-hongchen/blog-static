@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueResource from 'vue-resource';
+
 import App from '@/App'
 import config from './config';
 import store from '@/store';
@@ -7,9 +9,11 @@ require('../baseCss/base.scss');
 import '@/util/date';
 
 Vue.use(Router);
+Vue.use(VueResource);
 
 const mapObj = {
 	'index': r => require.ensure([], () => r(require('@/page/index/index.vue')), 'index'),
+	'blog': r => require.ensure([], () => r(require('@/page/blog/index.vue')), 'index'),
 	'notFound': r => require.ensure([], () => r(require('@/components/404.vue')), 'notFound'),
 };
 const router = new Router({
@@ -20,6 +24,11 @@ const router = new Router({
 			path: "/",
 			name: 'index',
 			component: mapObj.index
+		},
+		{
+			path: "/blog",
+			name: 'blog',
+			component: mapObj.blog
 		},
 		{
 			path: '*',
