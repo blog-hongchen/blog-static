@@ -1,0 +1,2 @@
+webpackJsonp([1],{Y7SB:function(e,t){},thLP:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r={render:function(){var e=this.$createElement;return(this._self._c||e)("div",{staticClass:"hello"},[this._v("\n  404\n")])},staticRenderFns:[]};var s=n("VU/8")({data:function(){return{msg:"Welcome to Your Vue.js App"}}},r,!1,function(e){n("Y7SB")},"data-v-68034927",null);t.default=s.exports}});
+//# sourceMappingURL=1.f38c58e15541de524cbb.js.map
