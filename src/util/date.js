@@ -29,7 +29,7 @@ Date.prototype.format = function (pattern) {
 };
 
 Date.prototype.formatYearDateTime = function (timestamp) {
-	var date = new Date(parseInt(timestamp));
+	var date = typeof timestamp == "number" ? new Date(parseInt(timestamp)) : new Date(timestamp);
 	var y = date.getFullYear(),
 		m = date.getMonth() + 1,
 		d = date.getDate(),

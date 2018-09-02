@@ -161,11 +161,11 @@
 				let year = new Date(this.nowShowDate).getFullYear(), month = new Date(this.nowShowDate).getMonth() + 1;
 				let days = (new Date(year, month, 0)).getDate();
 				let preDays = (new Date(year, month - 1, 0)).getDate();
-
 				let daysArr = [];
 				let row = [];
 				for (let i = 1; i <= days; i++) {
-					let weekNum = (new Date(year, month - 1, i)).getDay();
+					let weekNum = (new Date(year + "/" + month + "/" + i)).getDay();
+					// let weekNum = (new Date(year, month - 1, i)).getDay();
 					let datObj = {
 						"num": i,
 						"week": weekNum,
@@ -174,7 +174,7 @@
 						"date": year + "/" + month + "/" + i,
 						"isChoose": this.chooseObj.date == (year + "/" + month + "/" + i) ? true : false
 					};
-					if (new Date(year, month - 1, i).getTime() == (new Date(this.formatYearMonthDay(new Date().getTime()))).getTime()) {
+					if (new Date(year + "/" + month + "/" + i).getTime() == (new Date(this.formatYearMonthDay(new Date().getTime()))).getTime()) {
 						datObj.isToday = true;
 					}
 					row.push(datObj);
@@ -185,7 +185,7 @@
 				}
 				let preDifference = 7 - daysArr[0].length;
 				for (let i = 0; i < preDifference; i++) {
-					let weekNum = (new Date(year, month - 2, preDays - i)).getDay()
+					let weekNum = (new Date(year, month - 2, preDays - i)).getDay();
 					let datObj = {
 						"num": preDays - i,
 						"week": weekNum,
@@ -194,9 +194,9 @@
 						"date": ((month - 1) < 1 ? year - 1 : year) + "/" + ((month - 1) < 1 ? -((month - 1) - 12) : (month - 1)) + "/" + (preDays - i),
 						"isChoose": false
 					}
-					if (new Date(year, month - 1, i).getTime() == (new Date(this.formatYearMonthDay(new Date().getTime()))).getTime()) {
-						datObj.isToday = true;
-					}
+					// if (new Date(year + "/" + (month - 1) + "/" + i).getTime() === (new Date(this.formatYearMonthDay(new Date().getTime()))).getTime()) {
+					// 	datObj.isToday = true;
+					// }
 					daysArr[0].unshift(datObj);
 				}
 
@@ -211,9 +211,9 @@
 						"date": (month + 1 > 12 ? year + 1 : year) + "/" + ((month + 1) > 12 ? (month + 1) - 12 : (month + 1)) + "/" + i,
 						"isChoose": false
 					}
-					if (new Date(year, month - 1, i).getTime() == (new Date(this.formatYearMonthDay(new Date().getTime()))).getTime()) {
-						datObj.isToday = true;
-					}
+					// if (new Date(year + "/" + (month + 1) + "/" + i).getTime() == (new Date(this.formatYearMonthDay(new Date().getTime()))).getTime()) {
+					// 	datObj.isToday = true;
+					// }
 					daysArr[daysArr.length - 1].push(datObj);
 				}
 				this.daysArr = daysArr;

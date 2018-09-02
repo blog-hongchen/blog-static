@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Calendar from "@/components/calendar"
+import blogSummaryList from "@/components/blog-list/blog-list-summary.vue"
 import {mapGetters} from 'vuex';
 import * as actions from '../../store/mutation-types.js';
 import {ajax} from '../../common/common';
@@ -9,7 +10,7 @@ export default {
 	data() {
 		return {
 			msg: '',
-			defaultDate: new Date("2018/07/07")
+			defaultDate: new Date()
 		}
 	},
 	computed: {
@@ -19,12 +20,12 @@ export default {
 	},
 	components: {
 		Calendar,
+		blogSummaryList
 	},
 	created() {
 		this.$store.commit(actions.SELECT_TAB, 'index');
 	},
 	mounted() {
-
 	},
 	methods: {
 		test() {
@@ -39,6 +40,9 @@ export default {
 			}).catch(err => {
 				console.log('ajax err', err);
 			});
+		},
+		chooseDay(item) {
+			console.log("chooseDay", item)
 		}
 	}
 }

@@ -1,21 +1,20 @@
 const API = {
 	production: '',
-	development: '/rest/'
+	development: 'http://192.168.99.133:8086/api'
 };
 let apiUrl = "", token = "";
 const urls = {
 	//线上正式接口地址
 	production: {
-		test: 'http://192.168.99.133:8087/test',
-		aaaa: 'http://192.168.99.133:8087/aaaa',
+		blogList: 'https://api.aihongchen.cn/api/blogList',
 	},
+	localHost: {},
 	//Mock接口地址，方便调试
 	development: {
-		login: 'login/'
+		blogList: '/blogList/',
 	}
 
 };
-
 const expUrl = urls[process.env.NODE_ENV]; //先默认为对应环境的url地址
 
 if (process.env.NODE_ENV == 'development') {

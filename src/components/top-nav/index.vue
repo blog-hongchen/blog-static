@@ -1,22 +1,28 @@
 <template>
 	<header class="top-content">
 		<img src="../../assets/1.png"/>
-		<nav class="top-nav">
-			<li v-bind:class="{current:selectTab=='index'}" @click="show('index')">首页</li>
-			<li v-bind:class="{current:selectTab=='blog'}" @click="show('blog')">博客</li>
-		</nav>
+		<!--<nav class="top-nav">-->
+		<!--<li v-bind:class="{current:selectTab=='index'}" @click="show('index')">首页</li>-->
+		<!--<li v-bind:class="{current:selectTab=='blog'}" @click="show('blog')">博客</li>-->
+		<!--</nav>-->
 	</header>
 </template>
 <style lang="scss" scoped>
 	.top-content {
 		width: 100%;
 		margin: 0 auto;
-		height: 200px;
+		/*height: 200px;*/
 		position: relative;
+		font-size: 0;
+		height: 300px;
+		/*background-image: url("../../assets/1.png");*/
+		/*background-repeat: no-repeat;*/
+		/*background-position: center center;*/
+		/*background-size: 100% 100%;*/
 
 		img {
 			width: 100%;
-			height: 100%;
+			height: 300px;
 		}
 		.top-nav {
 			position: absolute;

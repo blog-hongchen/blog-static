@@ -27,9 +27,9 @@ const ajax = function (url, options, backUrl) {
 	return new Promise((resolve, reject) => {
 
 		Vue.http.get(url, {params: options.jsonParams}).then(response => {
-			console.log("ss", response)
+			resolve(JSON.parse(response.bodyText));
 		}, response => {
-			console.log("saa", response)
+			reject(response);
 		});
 
 		// Vue.http(options).then(res => {

@@ -3,15 +3,18 @@
 body {
   margin: 0;
   font-family: Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
-  color: #222;
+  //color: #222;
   font-size: 12px;
-  background: #f4f5f7;
+  background: #ffffff;
+  color: #666
   //background-color: #c7cbbd;
 }
 
 ul, ol, nav {
   padding-left: 0;
-  list-style: none
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 em, i {
@@ -34,17 +37,31 @@ textarea {
   resize: none;
 }
 
+h1, h2, h3, h4, h5, h6, em {
+  font-size: 100%;
+  font-weight: normal;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  //font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  width: 1100px;
+  //text-align: center;
+  color: #666;
+  //width: 1100px;
   margin: 0 auto;
-
-  @media (min-width: 1420px) {
-	width: 1280px !important;
+  font: 12px/200% "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
+  //@media (min-width: 1420px) {
+  //width: 1280px !important;
+  //}
+  .box {
+	&::after {
+	  clear: both;
+	  display: block;
+	  visibility: hidden;
+	  height: 0;
+	  overflow: hidden;
+	  content: '.';
+	}
   }
-
 }
