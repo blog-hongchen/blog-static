@@ -1,1 +1,1 @@
-# point-meal
+# blog static
