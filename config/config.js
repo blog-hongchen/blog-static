@@ -32,9 +32,6 @@ config.install = function (Vue, options) {
 					// 	vm.$router.push({name: 'login'});
 					// }
 				}
-				vm.customComponentList = {
-					'top-nav': require('@/components/top-nav/index.vue'),
-				};
 				// vm.customComponentList = {
 				// 	'footerComponent': require('@/components/footer/footer.vue'),
 				// };

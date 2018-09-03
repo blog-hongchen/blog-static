@@ -1,48 +1,62 @@
 import Vue from 'vue';
-import Calendar from "@/components/calendar"
-import blogSummaryList from "@/components/blog-list/blog-list-summary.vue"
-import {mapGetters} from 'vuex';
-import * as actions from '../../store/mutation-types.js';
-import {ajax} from '../../common/common';
+
+import {ajax, sessionData} from '../../common/common';
 import urls from '../../common/urls';
+
+Vue.filter('dateFormat', function (date) {
+	return (new Date()).formatYearDateTime(date);
+});
 
 export default {
 	data() {
 		return {
-			msg: '',
-			defaultDate: new Date()
+			list: [],
+			searchObj: {
+				page: "1",
+				size: "2",
+				title: "",
+				content: ""
+			},
+			totalPage: 1
 		}
 	},
-	computed: {
-		...mapGetters({
-			selectTab: 'getSelectTab',
-		})
-	},
-	components: {
-		Calendar,
-		blogSummaryList
-	},
+	computed: {},
+	components: {},
 	created() {
-		this.$store.commit(actions.SELECT_TAB, 'index');
 	},
 	mounted() {
+		this.getBlog();
 	},
 	methods: {
-		test() {
-			let formObj = {
-				"first_name": "name",
-				"last_name": "lastname"
-			}
-
-			ajax(urls.test, {jsonParams: formObj}).then(data => {
-				if (data) {
+		getBlog() {
+			let searchObj = {
+				page: this.searchObj.page,
+				size: this.searchObj.size,
+				title: ""
+			};
+			ajax(urls.blogList, {jsonParams: searchObj}).then(data => {
+				if (data && data.code == 200) {
+					this.list = data.data;
+					this.totalPage = Math.ceil(data.total / this.searchObj.size);
 				}
 			}).catch(err => {
 				console.log('ajax err', err);
 			});
 		},
-		chooseDay(item) {
-			console.log("chooseDay", item)
+		pre() {
+			this.searchObj.page = this.searchObj.page - 1;
+		},
+		next() {
+			this.searchObj.page = this.searchObj.page * 1 + 1;
+		},
+		blog(item) {
+			sessionData.set("blogItem", item);
+			vm.$router.push({name: 'blog', params: item});
+		}
+	},
+	watch: {
+		"searchObj.page": function () {
+			this.getBlog();
 		}
 	}
 }

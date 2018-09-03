@@ -1,0 +1,176 @@
+.g-mnc {
+  .m-postdtl {
+	.m-post {
+	  border-bottom: 1px solid #eee;
+	  padding: 0 0 50px;
+	  margin: 0 0 50px;
+	  .ctc {
+		font-size: 14px;
+		line-height: 26px;
+		.ttl {
+		  margin: 0 0 20px;
+		  font-size: 18px;
+		  line-height: 30px;
+		}
+		.txtcont {
+		  p {
+			margin: 0 0 25px;
+		  }
+		}
+	  }
+	  .info {
+		padding: 30px 0 0;
+		color: #ccc;
+		span {
+		  margin: 0 20px 0 0;
+		  white-space: nowrap;
+		}
+	  }
+	}
+  }
+  .m-pager {
+	padding: 0 0 50px;
+	font-size: 16px;
+	text-align: center;
+	color: #56AAC3;
+	.pre {
+	  float: left;
+
+	}
+	.next {
+	  float: right;
+	}
+  }
+  .m-cmthot {
+	padding: 50px 0;
+	border-top: 1px solid #eee;
+	.m-cmt, .m-hot {
+	  padding: 10px 0;
+	}
+	.nctitle {
+	  margin-bottom: 8px;
+	  font-size: 14px;
+	}
+	.bcmt {
+	  text-align: left;
+	  font-size: 12px;
+	  line-height: normal;
+	}
+	.bcmtadd {
+	  position: relative;
+	  margin: 0 0 18px;
+	  zoom: 1;
+
+	  .bcmtipt {
+		border-style: solid;
+		border-width: 1px;
+		margin: 0 0 10px;
+		padding: 3px 5px;
+	  }
+	  .bcmtiptc {
+		width: 100%;
+	  }
+	  .f-trans {
+		transition: height 0.3s linear;
+		-webkit-transition: height 0.3s linear;
+		-moz-transition: height 0.3s linear;
+		-o-transition: height 0.3s linear;
+	  }
+	  .editdiv {
+		width: 100%;
+		height: 60px;
+		overflow-x: hidden;
+		border: 0;
+		outline: 0;
+		resize: none;
+		background: none;
+		line-height: 19px;
+		font-size: 12px;
+		&.focus {
+		  height: 130px;
+		}
+	  }
+
+	  .toast {
+		color: red;
+		display: none;
+		margin-right: 10px;
+	  }
+	  button {
+		float: right;
+		width: 78px;
+		height: 24px;
+		border-style: solid;
+		border-width: 1px;
+		cursor: pointer;
+	  }
+	  .txt {
+		height: 24px;
+		margin: 0 120px 0 0;
+		overflow: hidden;
+		line-height: 24px;
+	  }
+	}
+	.bcmtlst {
+	  li {
+		float: left;
+		width: 100%;
+		border-style: solid;
+		border-width: 1px 0 0;
+	  }
+
+	  .bcmtlstb {
+		position: relative;
+		float: left;
+		width: 20px;
+		height: 20px;
+		border: 0;
+		img {
+		  float: left;
+		  width: 20px;
+		  height: 20px;
+		  border: 0;
+		}
+	  }
+	  .bcmtlstc {
+		float: right;
+		width: 100%;
+		margin-left: -20px;
+	  }
+
+	  .bcmtlstd {
+		margin-left: 30px;
+	  }
+	  .bcmtlste {
+		position: relative;
+		zoom: 1;
+	  }
+	  .bcmtlstg {
+		float: left;
+		width: 100%;
+		margin-right: -120px;
+	  }
+	  .bcmtlsti {
+		margin-right: 120px;
+	  }
+	  .bcmtlstj {
+		width: 100%;
+		overflow: hidden;
+		line-height: 19px;
+		word-wrap: break-word;
+	  }
+	  .bcmtlsth {
+		position: absolute;
+		top: 0;
+		right: 0;
+		color: #56AAC3;
+		span {
+		  margin-left: 10px;
+		}
+		.delete-comment {
+		  visibility: hidden;
+		}
+	  }
+	}
+  }
+}

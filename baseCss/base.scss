@@ -65,3 +65,51 @@ h1, h2, h3, h4, h5, h6, em {
 	}
   }
 }
+
+.s-bg0 {
+  background: #fff;
+}
+
+.s-bg1 {
+  background: #777;
+}
+
+.s-bd0 {
+  border-color: #ccc;
+}
+
+.s-bd1 {
+  border-color: #777;
+}
+
+.s-bd2 {
+  border-color: #eee;
+}
+
+.s-fc4 {
+  color: #666;
+}
+
+.s-fc0 {
+  color: #777;
+}
+
+.s-fc1 {
+  color: #fff;
+}
+
+.clearfix {
+  zoom: 1;
+  &::after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	content: ".";
+  }
+}
+
+.bcmtlsta {
+  padding: 10px 0;
+}
