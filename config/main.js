@@ -15,6 +15,7 @@ Vue.use(VueResource);
 const mapObj = {
 	'index': r => require.ensure([], () => r(require('@/page/index/index.vue')), 'index'),
 	'blog': r => require.ensure([], () => r(require('@/page/blog/index.vue')), 'index'),
+	'editBlog': r => require.ensure([], () => r(require('@/page/blog/edit.vue')), 'index'),
 	'notFound': r => require.ensure([], () => r(require('@/components/404.vue')), 'notFound'),
 };
 const router = new Router({
@@ -30,6 +31,18 @@ const router = new Router({
 			path: "/blog",
 			name: 'blog',
 			component: mapObj.blog
+		},
+		{
+			path: "/editBlog",
+			name: 'editBlog',
+			props: {"update": "update"},
+			component: mapObj.editBlog
+		},
+		{
+			path: "/addBlog",
+			name: 'addBlog',
+			props: {"update": "add"},
+			component: mapObj.editBlog
 		},
 		{
 			path: '*',

@@ -33,6 +33,9 @@ export default {
 		},
 		blur() {
 			this.isFocus = false;
+		},
+		update(item){
+			vm.$router.push({name: 'editBlog', params: item});
 		}
 	}
 

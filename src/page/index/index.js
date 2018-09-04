@@ -13,7 +13,7 @@ export default {
 			list: [],
 			searchObj: {
 				page: "1",
-				size: "2",
+				size: "10",
 				title: "",
 				content: ""
 			},

@@ -1,6 +1,6 @@
 const API = {
 	production: '',
-	development: 'http://192.168.99.133:8086/api'
+	development: 'http://127.0.0.1:8086/api'
 };
 let apiUrl = "", token = "";
 const urls = {

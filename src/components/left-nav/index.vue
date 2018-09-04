@@ -1,6 +1,6 @@
 <template>
 	<div class="left-content">
-		<div class="m-hdimg" @click="home">
+		<div class="m-hdimg" @click="show('index')">
 			<img src="../../assets/portrait.jpg" width="96" height="96">
 		</div>
 		<h1 class="m-ttl">
@@ -8,7 +8,7 @@
 		</h1>
 		<p class="m-about">这个人不懒，但还是啥都没有写</p>
 		<ul class="m-nav">
-			<li class="lnkcstm">全部</li>
+			<li class="lnkcstm" @click="show('index')">全部</li>
 		</ul>
 		<!--<div class="calendar-content">-->
 		<!--<Calendar-->
@@ -45,7 +45,7 @@
 						break;
 				}
 			},
-			home(){
+			home() {
 				this.$router.push({name: 'index'});
 			}
 		}
@@ -90,6 +90,8 @@
 			li {
 				padding: 0 0 8px;
 				color: #aaa;
+				font-size: 14px;
+				cursor: pointer;
 			}
 		}
 

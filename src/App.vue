@@ -6,7 +6,9 @@
 		<div class="content">
 			<leftNav></leftNav>
 			<div class="right-content">
-				<router-view/>
+				<div class="scroll-content">
+					<router-view/>
+				</div>
 			</div>
 		</div>
 		<footers></footers>
@@ -26,12 +28,15 @@
 			return {
 				defaultDate: new Date()
 			}
-		}, computed: {
+		},
+		computed: {
 			...mapGetters({
 				selectTab: 'getSelectTab',
 			})
 		},
 		components: {leftNav, Calendar, footers},
+		mounted() {
+		},
 		methods: {
 			chooseDay(item) {
 				console.log("chooseDay", item)
@@ -55,7 +60,7 @@
 
 		img {
 			width: 100%;
-			height: 300px;
+			height: 100%;
 		}
 		.top-nav {
 			position: absolute;
@@ -80,6 +85,7 @@
 	.content {
 		margin: -53px auto 0;
 		width: 1000px;
+		height: calc(100% - 300px - 75px + 50px);
 		position: relative;
 		&::after {
 			clear: both;
@@ -96,8 +102,11 @@
 		//width: 80%;
 		float: right;
 		text-align: left;
-		padding: 132px 100px 0 0;
-		//box-sizing: border-box;
+		padding: 100px 0 0 0;
+		height: 100%;
+		overflow: hidden;
+		box-sizing: border-box;
 	}
+
 
 </style>

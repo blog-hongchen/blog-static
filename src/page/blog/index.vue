@@ -7,7 +7,7 @@
 						<div class="ctc box">
 							<h2 class="ttl">{{item.title}}</h2>
 							<div class="txtcont">
-								<p v-html="item.content"></p>
+								<article class="article" v-html="item.content"></article>
 							</div>
 						</div>
 					</div>
@@ -17,6 +17,7 @@
 						<div class="meta box">
 							<span class="date">时间：{{item.create_time | dateFormat}}</span>
 							<span class="cmt">评论：6</span>
+							<span class="cmt" @click="update(item)">修改</span>
 						</div>
 					</div>
 				</div>
