@@ -52,7 +52,7 @@
 		/*height: 200px;*/
 		position: relative;
 		font-size: 0;
-		height: 300px;
+		height: 220px;
 		/*background-image: url("../../assets/1.png");*/
 		/*background-repeat: no-repeat;*/
 		/*background-position: center center;*/
@@ -84,8 +84,10 @@
 
 	.content {
 		margin: -53px auto 0;
-		width: 1000px;
-		height: calc(100% - 300px - 75px + 50px);
+		min-width: 880px;
+		width: 80%;
+		float: right;
+		height: calc(100% - 220px - 75px + 50px);
 		position: relative;
 		&::after {
 			clear: both;
@@ -98,7 +100,8 @@
 	}
 
 	.right-content {
-		width: 650px;
+		/*width: 650px;*/
+		width: calc(100% - 260px);
 		//width: 80%;
 		float: right;
 		text-align: left;

@@ -54,7 +54,7 @@
 <style lang="scss" scoped>
 	.left-content {
 		//width: 20%;
-		width: 190px;
+		width: 200px;
 		float: left;
 		padding: 0 60px 50px 0;
 		//box-sizing: border-box;
