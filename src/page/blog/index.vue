@@ -7,7 +7,7 @@
 						<div class="ctc box">
 							<h2 class="ttl">{{item.title}}</h2>
 							<div class="txtcont">
-								<article class="article" v-html="item.content"></article>
+								<article class="article" v-html="item.article"></article>
 							</div>
 						</div>
 					</div>
@@ -17,7 +17,7 @@
 						<div class="meta box">
 							<span class="date">时间：{{item.create_time | dateFormat}}</span>
 							<span class="cmt">评论：6</span>
-							<span class="cmt" @click="update(item)">修改</span>
+							<span class="cmt update-oper" @click="update(item)">修改</span>
 						</div>
 					</div>
 				</div>
@@ -39,7 +39,8 @@
 							<div class="bcmtadd" style="">
 								<div class="bcmtipt s-bd0 s-bg0">
 									<div class="bcmtiptc">
-										<div @focus="focus" @blur="blur" :class="{focus:isFocus}"  contenteditable="true" class="editdiv s-fc0 ztag f-trans" maxlength="200">
+										<div @focus="focus" @blur="blur" :class="{focus:isFocus}" contenteditable="true"
+											 class="editdiv s-fc0 ztag f-trans" maxlength="200">
 										</div>
 									</div>
 								</div>

@@ -87,7 +87,8 @@
 		min-width: 880px;
 		width: 80%;
 		float: right;
-		height: calc(100% - 220px - 75px + 50px);
+		height: calc(100% - 220px - 45px + 50px);
+		min-height: 500px;
 		position: relative;
 		&::after {
 			clear: both;

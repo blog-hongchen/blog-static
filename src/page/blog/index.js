@@ -13,6 +13,7 @@ export default {
 			isFocus: false
 		}
 	},
+
 	computed: {
 		...mapGetters({
 			selectTab: 'getSelectTab',
@@ -34,8 +35,8 @@ export default {
 		blur() {
 			this.isFocus = false;
 		},
-		update(item){
-			vm.$router.push({name: 'editBlog', params: item});
+		update(item) {
+			vm.$router.push({name: 'editBlog', params: {blogInfo: JSON.stringify(item)}});
 		}
 	}
 

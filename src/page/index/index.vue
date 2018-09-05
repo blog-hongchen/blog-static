@@ -10,7 +10,7 @@
 									{{item.title}}
 								</h2>
 								<div class="txtcont">
-									<article class="index-article" v-html="item.content"></article>
+									<article class="index-article" v-html="item.article"></article>
 								</div>
 							</div>
 						</div>

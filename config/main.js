@@ -6,8 +6,25 @@ import App from '@/App'
 import config from './config';
 import store from '@/store';
 
+import "../src/lib/layui/layui.all";
+
+require("../src/lib/layui/css/layui.css");
 require('../baseCss/base.scss');
+require('../src/lib/layui/css/layui.css');
+require('../src/lib/layui/css/modules/code.css');
+require('../src/lib/layui/css/modules/laydate/default/laydate.css');
+require('../src/lib/layui/css/modules/layer/default/layer.css');
 import '@/util/date';
+
+import 'element-ui/lib/theme-chalk/index.css';
+import {Button, Select, Input, Form, FormItem,Option} from 'element-ui';
+
+Vue.use(Button);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(Input);
+Vue.use(Form);
+Vue.use(FormItem);
 
 Vue.use(Router);
 Vue.use(VueResource);
@@ -33,7 +50,7 @@ const router = new Router({
 			component: mapObj.blog
 		},
 		{
-			path: "/editBlog",
+			path: "/editBlog/:blogInfo",
 			name: 'editBlog',
 			props: {"update": "update"},
 			component: mapObj.editBlog

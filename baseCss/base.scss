@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, h6, em {
 	  line-height: 30px;
 	  cursor: pointer;
 	}
-	.index-article{
+	.index-article {
 	  height: 25px;
 	  overflow: hidden;
 	  white-space: nowrap;
@@ -169,6 +169,9 @@ h1, h2, h3, h4, h5, h6, em {
 	padding: 15px 0 0;
 	span {
 	  padding-left: 15px;
+	}
+	.update-oper {
+	  cursor: pointer;
 	}
   }
 }
