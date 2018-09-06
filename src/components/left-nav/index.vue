@@ -8,7 +8,7 @@
 		</h1>
 		<p class="m-about">这个人不懒，但还是啥都没有写</p>
 		<ul class="m-nav">
-			<li class="lnkcstm" @click="show('index')">全部</li>
+			<li class="lnkcstm" :class="{'is-active': selectTab =='index'}" @click="show('index')">全部</li>
 		</ul>
 		<!--<div class="calendar-content">-->
 		<!--<Calendar-->
@@ -92,6 +92,9 @@
 				color: #aaa;
 				font-size: 14px;
 				cursor: pointer;
+				&.is-active {
+					color: #409eff;
+				}
 			}
 		}
 

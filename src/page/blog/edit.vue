@@ -6,8 +6,8 @@
 			</el-form-item>
 			<el-form-item label="分类" prop="classification">
 				<el-select v-model="formData.classification" placeholder="请选择活动区域">
-					<el-option label="区域一" value="shanghai"></el-option>
-					<el-option label="区域二" value="beijing"></el-option>
+					<el-option label="区域一" value="1"></el-option>
+					<el-option label="区域二" value="2"></el-option>
 				</el-select>
 			</el-form-item>
 			<div class="layui-form layui-form-pane">
@@ -19,7 +19,7 @@
 				</div>
 			</div>
 			<el-form-item>
-				<el-button type="primary" @click="submitForm('formData')">立即创建</el-button>
+				<el-button type="primary" @click="submitForm('formData')" :loading="loading">发表</el-button>
 				<el-button @click="resetForm('formData')">重置</el-button>
 			</el-form-item>
 		</el-form>
@@ -29,6 +29,8 @@
 
 <script>
 	import Vue from 'vue';
+	import {axiosPost, sessionData} from '../../common/common';
+	import urls from '../../common/urls';
 
 	export default {
 		name: 'App',
@@ -40,7 +42,7 @@
 				itemData: "",
 				formData: {
 					title: "",
-					article: "12212121212 ",
+					article: "",
 					classification: ""
 				},
 				rules: {
@@ -51,7 +53,8 @@
 					classification: [
 						{required: true, message: '请选择分类', trigger: 'change'}
 					]
-				}
+				},
+				loading: false
 			}
 		},
 		components: {},
@@ -72,9 +75,34 @@
 		},
 		methods: {
 			submitForm(formName) {
+				if (this.loading) {
+					return;
+				}
 				this.$refs[formName].validate((valid) => {
 					if (valid) {
-						alert('submit!');
+						this.loading = true;
+						this.formData.article = this.layedit.getContent(this.text);
+						this.formData.id = this.itemData.id;
+
+						axiosPost(urls.updateBlog, this.formData).then(json => {
+							if (json.code == 200) {
+								this.$message({
+									message: '发表成功',
+									type: 'success',
+									onClose: function () {
+										vm.loading = false;
+										vm.$router.push({name: 'index'});
+									}
+								});
+							} else {
+								this.loading = false;
+								this.$message.error('发表失败');
+							}
+						}).catch(err => {
+							this.$message.error('发表失败');
+							this.loading = false;
+							console.log('ajax err', err);
+						});
 					} else {
 						console.log('error submit!!');
 						return false;

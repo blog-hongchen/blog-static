@@ -1,12 +1,19 @@
 .g-mnc {
   .m-postlst {
-
+	min-height: 100%;
   }
   .m-pager {
-	padding: 0 0 50px;
+	/* padding: 0 0 25px; */
 	font-size: 16px;
 	text-align: center;
-	color: #56AAC3;
+	//color: #56AAC3;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: calc(70% - 20px);
+	//background-color: #cccccc;
+	//height: 50px;
+	//line-height: 50px;
 	.prev {
 	  float: left;
 	  cursor: pointer;

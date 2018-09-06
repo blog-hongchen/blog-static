@@ -1,6 +1,59 @@
 import Vue from 'vue';
 import {isObject, search2json, json2search, getParameterByName} from '../util/util';
 import urls from './urls';
+import axios from 'axios'
+
+
+const axiosPost = function (url, params) {
+	return new Promise((resolve, reject) => {
+		$axios({
+			method: 'post',
+			url: url,
+			data: params
+		}).then(function (response) {
+			resolve(response.data);
+		}).catch(function (error) {
+			if (error.data.code == 401) {
+				return;
+			}
+			reject(error && error.data);
+		});
+	});
+};
+
+const axiosGet = function (url, options, backUrl) {
+	options = options || {};
+	options.url = url;
+	//mock
+	// if(options.jsonParams && process.env.NODE_ENV !== 'development'){
+	if (options.jsonParams) {
+		let strParam = '';
+		if (typeof options.jsonParams == 'string') {
+			strParam = options.jsonParams;
+		} else if (isObject(options.jsonParams)) {
+			strParam = JSON.stringify(options.jsonParams);
+		}
+		strParam = encodeURIComponent(strParam);
+		options.url += strParam;
+		if (backUrl) {
+			options.url += backUrl;
+		}
+	}
+	let defaultErrorMsg = '出错啦!';
+	return new Promise((resolve, reject) => {
+
+		axios.get(url, {
+			params: options && options.jsonParams
+		}).then(function (response) {
+			resolve(response.data);
+		}).catch(function (error) {
+			// if (error.data.code == 401) {
+			// 	return;
+			// }
+			reject({message: error.message || defaultErrorMsg});
+		})
+	});
+};
 
 // import {alert} from '../components/layer';
 
@@ -231,6 +284,8 @@ const extendQuery = (path, query = {}) => {
 };
 
 export {
+	axiosGet,
+	axiosPost,
 	ajax,
 	urls,
 	localData,

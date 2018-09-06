@@ -17,18 +17,20 @@ require('../src/lib/layui/css/modules/layer/default/layer.css');
 import '@/util/date';
 
 import 'element-ui/lib/theme-chalk/index.css';
-import {Button, Select, Input, Form, FormItem,Option} from 'element-ui';
+import {Button, Select, Input, Form, FormItem, Option, Loading, Pagination, Message} from 'element-ui';
 
+Vue.use(Pagination);
 Vue.use(Button);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Input);
 Vue.use(Form);
 Vue.use(FormItem);
+Vue.use(Loading);
 
 Vue.use(Router);
 Vue.use(VueResource);
-
+Vue.prototype.$message = Message;
 const mapObj = {
 	'index': r => require.ensure([], () => r(require('@/page/index/index.vue')), 'index'),
 	'blog': r => require.ensure([], () => r(require('@/page/blog/index.vue')), 'index'),
