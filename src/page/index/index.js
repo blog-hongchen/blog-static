@@ -63,8 +63,14 @@ export default {
 			this.getBlog();
 		},
 		blog(item) {
-			sessionData.set("blogItem", item);
-			vm.$router.push({name: 'blog', params: item});
+			let routeData = this.$router.resolve({
+				name: "blog",
+				query: {id:item.id},
+				params:{id:item.id}
+			});
+			window.open(routeData.href, '_blank');
+			// sessionData.set("blogItem", item);
+			// vm.$router.push({name: 'blog', params: item});
 		},
 		handleSizeChange(val) {
 			this.searchObj.size = val;

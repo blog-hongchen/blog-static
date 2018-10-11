@@ -8,12 +8,14 @@ const urls = {
 	production: {
 		blogList: 'https://api.aihongchen.cn/api/blogList',
 		updateBlog: 'https://api.aihongchen.cn/api/blog',
+		blogItem: 'https://api.aihongchen.cn/api/blog',
 	},
 	localHost: {},
 	//Mock接口地址，方便调试
 	development: {
 		blogList: '/blogList/',
 		updateBlog: '/blog/',
+		blogItem:'/blog/'
 	}
 
 };

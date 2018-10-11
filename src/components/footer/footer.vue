@@ -7,13 +7,14 @@
 
 <style scoped lang="scss">
 	.g-ft {
-		/*margin: 50px 0 0;*/
+		margin: 103px 0 0;
 		padding: 10px 0;
-		position: fixed;
-		bottom: 0;
+		/*position: fixed;*/
+		/*bottom: 0;*/
 		width: 100%;
 		border-top: 1px solid #eee;
 		text-align: center;
+		clear: both;
 		p, a {
 			color: #ccc;
 		}

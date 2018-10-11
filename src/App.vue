@@ -83,11 +83,11 @@
 	}
 
 	.content {
-		margin: -53px auto 0;
+		margin: -53px auto;
 		min-width: 880px;
-		width: 80%;
-		float: right;
-		height: calc(100% - 220px - 45px + 50px);
+		width: 70%;
+		/*float: right;*/
+		/*height: calc(100% - 220px - 45px + 50px);*/
 		min-height: 500px;
 		position: relative;
 		&::after {
@@ -108,7 +108,7 @@
 		text-align: left;
 		padding: 100px 0 0 0;
 		height: 100%;
-		overflow: hidden;
+		/*overflow: hidden;*/
 		box-sizing: border-box;
 		position: relative;
 	}
